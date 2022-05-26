@@ -11,11 +11,11 @@ public class Server {
         String message;
         if(not == 1)
         {
-           message = "Your result is :  Words are not Anagram";	
+           message = "Words are not Anagram";	
         }
         else
         {
-           message = "Your result is :  Words are  Anagram";	
+           message = "Words are  Anagram";	
         }
         return message;
 	}
@@ -40,7 +40,6 @@ public class Server {
         }
 
      
-        //Check equalvalent of number of String
         if(wrd1.length()==wrd2.length()){
             for(int  i=0;i<wrd1.length();i++){
                
@@ -73,35 +72,26 @@ public class Server {
     return not;
 
     }   
-    /* anagram(String str){ */
     public static void main(String[] args){
 		try {
 
-            // create a socket at port # 6789
             ServerSocket ss = new ServerSocket(6789);  // create a socket
             System.out.println("A socket is created and now waiting for connection.");
 
-            // establish and wait for an incoming connection
             Socket s = ss.accept();
             System.out.println("A client has made a connection in.");
 
             DataInputStream din = new DataInputStream(s.getInputStream());
             DataOutputStream dout = new DataOutputStream(s.getOutputStream());
 
-            // wait for input message and display it
-            //send to client
-            System.out.println("I will send the message to receive words from CLient");
+            System.out.println("I will send the message to receive words from Client");
             
-            //send to client input 1 st word
             String str1 = "Please,input first word :  ";   
             dout.writeUTF(str1);
-            //receive 1 st word form client
             String wrd1 = (String)din.readUTF();  
 
-            //send to client input 2 nd word
             String str2 = "Please,input second word :  ";   
             dout.writeUTF(str2);
-            //receive 2 nd word form client
             String wrd2 = (String)din.readUTF();
             
             String  message  = display(anagram(wrd1,wrd2));

@@ -14,26 +14,20 @@ public class Client {
 
             DataOutputStream dout = new DataOutputStream(s.getOutputStream());
             DataInputStream din = new DataInputStream(s.getInputStream());
-
-            //Thread.sleep(5000);
-            
             String str = (String) din.readUTF();
             System.out.println(str);
-            //inout 1
+
             String input1 = input.nextLine();
             dout.writeUTF(input1);
 
             String str2 = (String) din.readUTF();
             System.out.println(str2);
-            //inout 2
+
             String input2 = input.nextLine();
             dout.writeUTF(input2);
 
-
-            //result
             String result = (String) din.readUTF();
             System.out.println(result);  
-            
             
             dout.flush();
             dout.close();
